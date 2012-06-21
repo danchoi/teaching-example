@@ -5,3 +5,8 @@
  *= require_self
  *= require_tree . 
 */
+
+.flash_notice {
+  border: 1px solid red;
+  font-size: 15px;
+}

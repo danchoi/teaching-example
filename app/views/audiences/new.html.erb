@@ -1,0 +1,34 @@
+<h1>Audiences#new</h1>
+<p>Find me in app/views/audiences/new.html.erb</p>
+
+<p>Saved so far:</p>
+
+<pre>
+Alert was created at <%= @alert.created_at %>
+Alert methods: 
+<% @alert.alert_methods.each do |m| %>
+* <%= m.label %>
+<% end %>
+</pre>
+
+<fieldset>
+  <legend>Select target group</legend>
+
+  <%= form_tag alert_audiences_path(@alert) do |f| %>
+    <table>
+    <% Audience.all.each do |audience| %>
+      <tr>
+        <td>
+          <%= audience.label %>
+        </td>
+        <td>
+          <%= check_box_tag 'audience_ids[]', audience.id %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+    <%= submit_tag %>
+  <% end %>
+
+</fieldset>
+

@@ -1,0 +1,27 @@
+<h1>Alerts#show</h1>
+<p>Find me in app/views/alerts/show.html.erb</p>
+
+<p>Created this alert:</p>
+
+<pre>
+Alert was created at <%= @alert.created_at %>
+Alert methods: 
+<% @alert.alert_methods.each do |m| %>
+* <%= m.label %>
+<% end %>
+
+Alert audiences
+<% @alert.audiences.each do |x| %>
+* <%= x.label %>
+<% end %>
+
+Alert sendbacks
+<% @alert.sendbacks.each do |x| %>
+* <%= x.label %>
+<% end %>
+</pre>
+
+
+<p>
+  <%= link_to "Create new alert", new_alert_path %>
+</p>

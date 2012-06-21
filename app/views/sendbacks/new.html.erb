@@ -1,0 +1,39 @@
+<h1>Sendbacks#new</h1>
+<p>Find me in app/views/sendbacks/new.html.erb</p>
+
+<p>Saved so far:</p>
+
+<pre>
+Alert was created at <%= @alert.created_at %>
+Alert methods: 
+<% @alert.alert_methods.each do |m| %>
+* <%= m.label %>
+<% end %>
+
+Alert audiences
+<% @alert.audiences.each do |x| %>
+* <%= x.label %>
+<% end %>
+</pre>
+
+<fieldset>
+  <legend>Select target group</legend>
+
+  <%= form_tag alert_sendbacks_path(@alert) do |f| %>
+    <table>
+    <% Sendback.all.each do |sendback| %>
+      <tr>
+        <td>
+          <%= sendback.label %>
+        </td>
+        <td>
+          <%= check_box_tag 'sendback_ids[]', sendback.id %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+    <%= submit_tag %>
+  <% end %>
+
+</fieldset>
+

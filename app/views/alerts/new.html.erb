@@ -1,0 +1,23 @@
+<h1>Alerts#new</h1>
+<p>Find me in app/views/alerts/new.html.erb</p>
+
+<fieldset>
+  <legend>Choose alert method</legend>
+
+  <%= form_for @alert do |f| %>
+    <table>
+    <% AlertMethod.all.each do |alert_method| %>
+      <tr>
+        <td>
+          <%= alert_method.label %>
+        </td>
+        <td>
+          <%= check_box_tag 'alert_method_ids[]', alert_method.id %>
+        </td>
+      </tr>
+    <% end %>
+    </table>
+    <%= submit_tag %>
+  <% end %>
+
+</fieldset>
